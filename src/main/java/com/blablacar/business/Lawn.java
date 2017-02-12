@@ -5,8 +5,6 @@ import main.java.com.blablacar.utils.ReaderUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javax.swing.UIManager.get;
-
 /**
  * Representation of a lawn :
  * <p>
@@ -61,14 +59,6 @@ public class Lawn {
         if (mowers != null && !mowers.isEmpty()) {
             mowers.forEach(mower -> mower.start(this));
         }
-    }
-
-    public void setGrid(int[][] grid) {
-        this.grid = grid;
-    }
-
-    public void setMowers(List<Mower> mowers) {
-        this.mowers = mowers;
     }
 
     public int[][] getGrid() {

@@ -1,6 +1,12 @@
 package main.java.com.blablacar.business;
 
 /**
+ * Representation of a cardinal point
+ *
+ * Each cardinalPoint has two methods :
+ * - turnLeft : turn at 90° on the left
+ * - turnRight : turn at 90° on the right
+ * <p>
  * Created by Milio PERALTA on 12/02/2017.
  */
 public enum CardinalPoint {
@@ -70,10 +76,6 @@ public enum CardinalPoint {
 
     public String getLabel() {
         return label;
-    }
-
-    public void setLabel(String label) {
-        this.label = label;
     }
 
 }

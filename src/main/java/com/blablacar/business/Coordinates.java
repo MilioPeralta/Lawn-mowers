@@ -40,8 +40,8 @@ public class Coordinates {
      * @param y the Y coordinate of the new {@link Coordinates}
      */
     public Coordinates(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this.x = 0;
+        this.y = 0;
     }
 
     /**
@@ -54,8 +54,8 @@ public class Coordinates {
         String[] stringCoordinates = line.split(" ");
         if (stringCoordinates.length >= NUMBER_COORDINATES_NEEDED) {
             try {
-                int x = Integer.valueOf(stringCoordinates[0]);
-                int y = Integer.valueOf(stringCoordinates[1]);
+                int x = Integer.parseInt(stringCoordinates[0]);
+                int y = Integer.parseInt(stringCoordinates[1]);
 
                 this.x = x;
                 this.y = y;

@@ -8,9 +8,6 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-/**
- * Created by Milio PERALTA on 12/02/2017.
- */
 public class ReaderUtilsTest {
 
     @Test

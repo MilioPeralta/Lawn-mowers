@@ -3,6 +3,12 @@ package main.java.com.blablacar.business;
 import java.util.function.BiFunction;
 
 /**
+ * Representaion of an instruction with its associated method :
+ * <p>
+ * - turnLeft : turn the mower at 90° on the left without moving the mower
+ * - turnRight : turn the mower at 90° on the right without moving the mower
+ * - goForward : means the mower move forward from one space in the direction in which it faces and without changing the orientation
+ * <p>
  * Created by Milio PERALTA on 12/02/2017.
  */
 public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
@@ -83,8 +89,9 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         return label;
     }
 
-    public static void move(char c, Mower mower, Lawn lawn) {
+    public static Mower move(char c, Mower mower, Lawn lawn) {
         Instruction instruction = findByLabel(c);
         instruction.apply(mower, lawn);
+        return mower;
     }
 }
