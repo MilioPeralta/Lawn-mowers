@@ -9,7 +9,7 @@ public class LawnTest {
 
     @Test
     public void should_return_1_3_N_and_5_1_E_for_input_txt() throws Exception {
-        Lawn lawn = new Lawn("C:\\Users\\Milio\\IdeaProjects\\mowers\\src\\test\\resources\\input.txt");
+        Lawn lawn = new Lawn("src/test/resources/input.txt");
 
         lawn.start();
 
@@ -24,7 +24,7 @@ public class LawnTest {
 
     @Test
     public void should_return_1_5_N_and_3_0_S_for_input_txt() throws Exception {
-        Lawn lawn = new Lawn("C:\\Users\\Milio\\IdeaProjects\\mowers\\src\\test\\resources\\input3.txt");
+        Lawn lawn = new Lawn("src/test/resources/input3.txt");
 
         lawn.start();
 
@@ -39,7 +39,7 @@ public class LawnTest {
 
     @Test
     public void should_return_5_5_N_and_0_0_S_for_input_txt() throws Exception {
-        Lawn lawn = new Lawn("C:\\Users\\Milio\\IdeaProjects\\mowers\\src\\test\\resources\\input4.txt");
+        Lawn lawn = new Lawn("src/test/resources/input4.txt");
 
         lawn.start();
 
@@ -54,7 +54,23 @@ public class LawnTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void should_throw_exception_for_BAD_DATA() throws Exception {
-        new Lawn("C:\\Users\\Milio\\IdeaProjects\\mowers\\src\\test\\resources\\input2.txt");
+        new Lawn("src/test/resources/input2.txt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_incomplete_file() throws Exception {
+        new Lawn("src/test/resources/input5.txt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_negative_coordinate() throws Exception {
+        new Lawn("src/test/resources/input6.txt");
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_incorrect_instructions() throws Exception {
+        Lawn lawn = new Lawn("src/test/resources/input7.txt");
+        lawn.start();
     }
 
 }
