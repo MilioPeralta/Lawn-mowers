@@ -12,7 +12,7 @@ public class MowersTest {
 
     @Before
     public void before() {
-        lawn = new Lawn(new int[5][5], null);
+        lawn = new Lawn(new Coordinates(5, 5), null);
     }
 
     @Test

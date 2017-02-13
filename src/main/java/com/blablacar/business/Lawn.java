@@ -8,27 +8,26 @@ import java.util.List;
 /**
  * Representation of a lawn :
  * <p>
- * The lawn is divided in grid to simplify navigation, represented as a 2D array
+ * The lawn is divided in grid to simplify navigation,
+ * We have the lower left corner as the point (0,0)
+ * and the upperRightCornerCoordinates
  * The lawn has a {@link List<Mower>} inside
  * <p>
  * Created by Milio PERALTA on 12/02/2017.
  */
 public class Lawn {
-    private int[][] grid;
+    private Coordinates upperRightCornerCoordinates;
     private List<Mower> mowers;
-
-    public Lawn() {
-    }
 
     /**
      * Construct and initialize a {@link Lawn}
-     * with a given grid and with a list of mowers
+     * with a given upperRightCornerCoordinates and with a list of mowers
      *
-     * @param grid
+     * @param upperRightCornerCoordinates
      * @param mowers
      */
-    public Lawn(int[][] grid, List<Mower> mowers) {
-        this.grid = grid;
+    public Lawn(Coordinates upperRightCornerCoordinates, List<Mower> mowers) {
+        this.upperRightCornerCoordinates = upperRightCornerCoordinates;
         this.mowers = mowers;
     }
 
@@ -36,10 +35,9 @@ public class Lawn {
         ReaderUtils readerUtils = new ReaderUtils(filePath);
         List<String> lines = readerUtils.read();
 
-        if (!lines.isEmpty()) {
+        if (areLinesValid(lines)) {
             // The first line correspond to the coordinate of the upper right corner of the lawn
-            Coordinates upperRightCornerCoordinates = new Coordinates(lines.get(0));
-            this.grid = new int[upperRightCornerCoordinates.getX()][upperRightCornerCoordinates.getY()];
+            this.upperRightCornerCoordinates = new Coordinates(lines.get(0));
 
             // Each mower has 2 next lines :
             // The first line give mower's starting position and orientation as "X Y O".
@@ -52,7 +50,21 @@ public class Lawn {
                 mowers.add(new Mower(lines.get(i), lines.get(i + 1)));
             }
             this.mowers = mowers;
+            return;
         }
+
+        throw new IllegalArgumentException();
+    }
+
+    /**
+     * The file's lines are valid if there are lines
+     * and the number of lines is odd
+     *
+     * @param lines
+     * @return
+     */
+    private boolean areLinesValid(List<String> lines) {
+        return !lines.isEmpty() && lines.size() % 2 == 1;
     }
 
     public void start() {
@@ -61,8 +73,8 @@ public class Lawn {
         }
     }
 
-    public int[][] getGrid() {
-        return grid;
+    public Coordinates getUpperRightCornerCoordinates() {
+        return upperRightCornerCoordinates;
     }
 
     public List<Mower> getMowers() {
