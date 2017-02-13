@@ -47,7 +47,7 @@ public class Lawn {
             // So we go two by two and start at i = 1, as the first line as already been taken care of
             List<Mower> mowers = new ArrayList<>();
             for (int i = 1; i < lines.size(); i += 2) {
-                mowers.add(new Mower(lines.get(i), lines.get(i + 1)));
+                mowers.add(new Mower(lines.get(i), lines.get(i + 1), this.upperRightCornerCoordinates));
             }
             this.mowers = mowers;
             return;

@@ -47,17 +47,20 @@ public class Coordinates {
     /**
      * Construct and initialize a {@link Coordinates}
      * at the given location by the line : "X Y"
+     * and check that the given X Y is in the grid
+     * e.g. X <= upperRightCornerCoordinates.getX()
+     * and Y <= upperRightCornerCoordinates.getY()
      *
      * @param line
      */
-    public Coordinates(String line) {
+    public Coordinates(String line, Coordinates upperRightCornerCoordinates) {
         String[] stringCoordinates = line.split(" ");
         if (stringCoordinates.length >= NUMBER_COORDINATES_NEEDED) {
             try {
                 int x = Integer.parseInt(stringCoordinates[0]);
                 int y = Integer.parseInt(stringCoordinates[1]);
 
-                if (x >= 0 && y >= 0) {
+                if (areCoordinatesValid(x, y, upperRightCornerCoordinates)) {
                     this.x = x;
                     this.y = y;
                     return;
@@ -68,6 +71,36 @@ public class Coordinates {
             }
         }
         throw new IllegalArgumentException();
+    }
+
+    /**
+     * Checks if the given coordinates are within the range
+     * [0, upperRightCornerCoordinates.getX()] for X
+     * [0, upperRightCornerCoordinates.getY()] for Y
+     *
+     * @param x
+     * @param y
+     * @param upperRightCornerCoordinates
+     * @return
+     */
+    private boolean areCoordinatesValid(int x, int y, Coordinates upperRightCornerCoordinates) {
+        boolean isValid = x >= 0 && y >= 0;
+
+        if (upperRightCornerCoordinates != null) {
+            isValid &= x <= upperRightCornerCoordinates.getX() && y <= upperRightCornerCoordinates.getY();
+        }
+
+        return isValid;
+    }
+
+    /**
+     * Construct and initialize a {@link Coordinates}
+     * at the given location by the line : "X Y"
+     *
+     * @param line
+     */
+    public Coordinates(String line) {
+        this(line, null);
     }
 
     public int getX() {

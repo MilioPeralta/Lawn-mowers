@@ -35,8 +35,8 @@ public class Mower {
      * coordinatesAndOrientation : "1 2 N"
      * instructions : "LFLFLFLFF"
      */
-    Mower(String coordinatesAndOrientation, String instructions) {
-        this.coordinates = new Coordinates(coordinatesAndOrientation);
+    Mower(String coordinatesAndOrientation, String instructions, Coordinates upperRightCornerCoordinates) {
+        this.coordinates = new Coordinates(coordinatesAndOrientation, upperRightCornerCoordinates);
         this.orientation = CardinalPoint.findByLabel(coordinatesAndOrientation.substring(coordinatesAndOrientation.length() - 1));
         this.instructions = instructions.toCharArray();
     }

@@ -73,4 +73,10 @@ public class LawnTest {
         lawn.start();
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_incorrect_coordinate() throws Exception {
+        Lawn lawn = new Lawn("src/test/resources/input8.txt");
+        lawn.start();
+    }
+
 }
