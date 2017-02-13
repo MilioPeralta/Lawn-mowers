@@ -3,7 +3,7 @@ package main.java.com.blablacar.business;
 import java.util.function.BiFunction;
 
 /**
- * Representaion of an instruction with its associated method :
+ * Representation of an instruction with its associated method :
  * <p>
  * - turnLeft : turn the mower at 90° on the left without moving the mower
  * - turnRight : turn the mower at 90° on the right without moving the mower
@@ -30,25 +30,24 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         Coordinates coordinates = mower.getCoordinates();
         Coordinates nextCoordinates = new Coordinates();
         CardinalPoint orientation = mower.getOrientation();
-        int gridSize = lawn.getGrid().length;
-
+        Coordinates upperRightCornerCoordinates = lawn.getUpperRightCornerCoordinates();
 
         switch (orientation) {
             case NORTH:
                 nextCoordinates.setX(coordinates.getX());
-                nextCoordinates.setY(getValidCoordinate(coordinates.getY() + 1, gridSize));
+                nextCoordinates.setY(getValidCoordinate(coordinates.getY() + 1, upperRightCornerCoordinates.getY()));
                 break;
             case EAST:
-                nextCoordinates.setX(getValidCoordinate(coordinates.getX() + 1, gridSize));
+                nextCoordinates.setX(getValidCoordinate(coordinates.getX() + 1, upperRightCornerCoordinates.getX()));
                 nextCoordinates.setY(coordinates.getY());
                 break;
             case WEST:
-                nextCoordinates.setX(getValidCoordinate(coordinates.getX() - 1, gridSize));
+                nextCoordinates.setX(getValidCoordinate(coordinates.getX() - 1, upperRightCornerCoordinates.getX()));
                 nextCoordinates.setY(coordinates.getY());
                 break;
             case SOUTH:
                 nextCoordinates.setX(coordinates.getX());
-                nextCoordinates.setY(getValidCoordinate(coordinates.getY() - 1, gridSize));
+                nextCoordinates.setY(getValidCoordinate(coordinates.getY() - 1, upperRightCornerCoordinates.getY()));
                 break;
         }
 
@@ -76,7 +75,7 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         this.binaryOperator = binaryOperator;
     }
 
-    public static Instruction findByLabel(char label) {
+    private static Instruction findByLabel(char label) {
         for (Instruction instruction : Instruction.values()) {
             if (instruction.getLabel() == label) {
                 return instruction;
@@ -85,13 +84,12 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         throw new IllegalArgumentException();
     }
 
-    public char getLabel() {
+    private char getLabel() {
         return label;
     }
 
-    public static Mower move(char c, Mower mower, Lawn lawn) {
+    public static void move(char c, Mower mower, Lawn lawn) {
         Instruction instruction = findByLabel(c);
         instruction.apply(mower, lawn);
-        return mower;
     }
 }
