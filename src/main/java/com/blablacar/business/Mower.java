@@ -49,7 +49,6 @@ public class Mower {
             for (char instruction : getInstructions()) {
                 Instruction.move(instruction, this, lawn);
             }
-//            System.out.println(this);
         }
     }
 
