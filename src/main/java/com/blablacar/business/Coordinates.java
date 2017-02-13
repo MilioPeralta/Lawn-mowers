@@ -34,19 +34,19 @@ public class Coordinates {
 
     /**
      * Construct and initialize a {@link Coordinates}
-     * at the given localtion {@code (x,y)}
+     * at the given location {@code (x,y)}
      *
      * @param x the X coordinate of the new {@link Coordinates}
      * @param y the Y coordinate of the new {@link Coordinates}
      */
     public Coordinates(int x, int y) {
-        this.x = 0;
-        this.y = 0;
+        this.x = x;
+        this.y = y;
     }
 
     /**
      * Construct and initialize a {@link Coordinates}
-     * at the given localtion "X Y"
+     * at the given location by the line : "X Y"
      *
      * @param line
      */
@@ -57,10 +57,12 @@ public class Coordinates {
                 int x = Integer.parseInt(stringCoordinates[0]);
                 int y = Integer.parseInt(stringCoordinates[1]);
 
-                this.x = x;
-                this.y = y;
+                if (x >= 0 && y >= 0) {
+                    this.x = x;
+                    this.y = y;
+                    return;
+                }
 
-                return;
             } catch (NumberFormatException e) {
                 throw new IllegalArgumentException();
             }
