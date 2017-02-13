@@ -1,5 +1,6 @@
 package main.java.com.blablacar.utils;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -21,7 +22,11 @@ public class ReaderUtils {
     private String filePath;
 
     public ReaderUtils(String filePath) {
-        this.filePath = filePath;
+        if (filePath != null && !filePath.isEmpty() && Files.isRegularFile(new File(filePath).toPath())) {
+            this.filePath = filePath;
+            return;
+        }
+        throw new IllegalArgumentException();
     }
 
     /**
