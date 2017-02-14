@@ -21,6 +21,12 @@ public class ReaderUtils {
      */
     private String filePath;
 
+    /**
+     * Construct and initialize a {@link ReaderUtils}
+     * with a given filePath
+     *
+     * @param filePath
+     */
     public ReaderUtils(String filePath) {
         if (filePath != null && !filePath.isEmpty() && Files.isRegularFile(new File(filePath).toPath())) {
             this.filePath = filePath;

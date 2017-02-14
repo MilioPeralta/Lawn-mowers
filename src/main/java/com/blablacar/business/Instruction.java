@@ -16,16 +16,37 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
     RIGHT('R', Instruction::turnRight),
     FRONT('F', Instruction::goForward);
 
+    /**
+     * turnLeft : turn the mower at 90° on the left without moving the mower
+     *
+     * @param mower
+     * @param lawn
+     * @return
+     */
     private static Mower turnLeft(Mower mower, Lawn lawn) {
         mower.setOrientation(mower.getOrientation().turnLeft());
         return mower;
     }
 
+    /**
+     * turnRight : turn the mower at 90° on the right without moving the mower
+     *
+     * @param mower
+     * @param lawn
+     * @return
+     */
     private static Mower turnRight(Mower mower, Lawn lawn) {
         mower.setOrientation(mower.getOrientation().turnRight());
         return mower;
     }
 
+    /**
+     * goForward : means the mower move forward from one space in the direction in which it faces and without changing the orientation
+     *
+     * @param mower
+     * @param lawn
+     * @return
+     */
     private static Mower goForward(Mower mower, Lawn lawn) {
         Coordinates coordinates = mower.getCoordinates();
         Coordinates nextCoordinates = new Coordinates();
@@ -55,6 +76,13 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         return mower;
     }
 
+    /**
+     * Ensure that the newCoordinate is in the grid
+     *
+     * @param newCoordinate
+     * @param gridSize
+     * @return
+     */
     private static int getValidCoordinate(int newCoordinate, int gridSize) {
         if (newCoordinate < 0) {
             return 0;
@@ -68,6 +96,7 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
     }
 
     private char label;
+
     private final BiFunction<Mower, Lawn, Mower> binaryOperator;
 
     Instruction(char label, BiFunction<Mower, Lawn, Mower> binaryOperator) {
@@ -88,6 +117,13 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         return label;
     }
 
+    /**
+     * Apply the Instruction function on the given mower in the given lawn
+     *
+     * @param c
+     * @param mower
+     * @param lawn
+     */
     public static void move(char c, Mower mower, Lawn lawn) {
         Instruction instruction = findByLabel(c);
         instruction.apply(mower, lawn);

@@ -2,7 +2,7 @@ package com.blablacar.business;
 
 /**
  * Representation of a cardinal point
- *
+ * <p>
  * Each cardinalPoint has two methods :
  * - turnLeft : turn at 90° on the left
  * - turnRight : turn at 90° on the right
@@ -57,8 +57,18 @@ public enum CardinalPoint {
 
     private String label;
 
+    /**
+     * turnLeft : turn at 90° on the left
+     *
+     * @return
+     */
     public abstract CardinalPoint turnLeft();
 
+    /**
+     * turnRight : turn at 90° on the right
+     *
+     * @return
+     */
     public abstract CardinalPoint turnRight();
 
     CardinalPoint(String label) {

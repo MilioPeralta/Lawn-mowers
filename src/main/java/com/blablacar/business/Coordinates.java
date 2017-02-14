@@ -26,7 +26,7 @@ public class Coordinates {
 
     /**
      * Construct and initialize a {@link Coordinates}
-     * at the origin (0,0) e.g. the lower left of a grid
+     * at the origin (0,0) e.g. the lower left of the grid
      */
     public Coordinates() {
         this(0, 0);
@@ -62,7 +62,7 @@ public class Coordinates {
     /**
      * Construct and initialize a {@link Coordinates}
      * at the given location by the line : "X Y"
-     * and check that the given X Y is in the grid
+     * and checks that the given X Y is in the grid
      * e.g. X <= upperRightCornerCoordinates.getX()
      * and Y <= upperRightCornerCoordinates.getY()
      *

@@ -31,6 +31,12 @@ public class Lawn {
         this.mowers = mowers;
     }
 
+    /**
+     * Construct and initialize a {@link Lawn}
+     * according to the lines from the input file
+     *
+     * @param filePath
+     */
     public Lawn(String filePath) {
         ReaderUtils readerUtils = new ReaderUtils(filePath);
         List<String> lines = readerUtils.read();
