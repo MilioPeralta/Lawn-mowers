@@ -40,8 +40,23 @@ public class Coordinates {
      * @param y the Y coordinate of the new {@link Coordinates}
      */
     public Coordinates(int x, int y) {
-        this.x = x;
-        this.y = y;
+        if (areCoordinatesValid(x, y)) {
+            this.x = x;
+            this.y = y;
+            return;
+        }
+
+        throw new IllegalArgumentException();
+    }
+
+    /**
+     * Construct and initialize a {@link Coordinates}
+     * at the given location by the line : "X Y"
+     *
+     * @param line
+     */
+    public Coordinates(String line) {
+        this(line, null);
     }
 
     /**
@@ -54,20 +69,22 @@ public class Coordinates {
      * @param line
      */
     public Coordinates(String line, Coordinates upperRightCornerCoordinates) {
-        String[] stringCoordinates = line.split(" ");
-        if (stringCoordinates.length >= NUMBER_COORDINATES_NEEDED) {
-            try {
-                int x = Integer.parseInt(stringCoordinates[0]);
-                int y = Integer.parseInt(stringCoordinates[1]);
+        if (line != null && !line.isEmpty()) {
+            String[] stringCoordinates = line.split(" ");
+            if (stringCoordinates.length >= NUMBER_COORDINATES_NEEDED) {
+                try {
+                    int x = Integer.parseInt(stringCoordinates[0]);
+                    int y = Integer.parseInt(stringCoordinates[1]);
 
-                if (areCoordinatesValid(x, y, upperRightCornerCoordinates)) {
-                    this.x = x;
-                    this.y = y;
-                    return;
+                    if (areCoordinatesValid(x, y, upperRightCornerCoordinates)) {
+                        this.x = x;
+                        this.y = y;
+                        return;
+                    }
+
+                } catch (NumberFormatException e) {
+                    throw new IllegalArgumentException();
                 }
-
-            } catch (NumberFormatException e) {
-                throw new IllegalArgumentException();
             }
         }
         throw new IllegalArgumentException();
@@ -94,13 +111,16 @@ public class Coordinates {
     }
 
     /**
-     * Construct and initialize a {@link Coordinates}
-     * at the given location by the line : "X Y"
+     * Checks if the given coordinates are within the range
+     * [0, Integer.MAX_VALUE] for X
+     * [0, Integer.MAX_VALUE] for Y
      *
-     * @param line
+     * @param x
+     * @param y
+     * @return
      */
-    public Coordinates(String line) {
-        this(line, null);
+    private boolean areCoordinatesValid(int x, int y) {
+        return areCoordinatesValid(x, y, null);
     }
 
     public int getX() {

@@ -66,7 +66,12 @@ public class CardinalPointTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void should_throw_exception_for_BAD_DATA() throws Exception {
+    public void should_throw_exception_for_null_values() throws Exception {
         CardinalPoint.findByLabel(null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_incorrect_values() throws Exception {
+        CardinalPoint.findByLabel("aze");
     }
 }

@@ -75,7 +75,7 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
         this.binaryOperator = binaryOperator;
     }
 
-    private static Instruction findByLabel(char label) {
+    public static Instruction findByLabel(char label) {
         for (Instruction instruction : Instruction.values()) {
             if (instruction.getLabel() == label) {
                 return instruction;
