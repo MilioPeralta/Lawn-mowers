@@ -1,6 +1,4 @@
-package test.java;
-
-import main.java.com.blablacar.business.Lawn;
+import com.blablacar.business.Lawn;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

@@ -1,6 +1,6 @@
-package main.java.com.blablacar;
+package com.blablacar;
 
-import main.java.com.blablacar.business.Lawn;
+import com.blablacar.business.Lawn;
 
 public class Main {
 

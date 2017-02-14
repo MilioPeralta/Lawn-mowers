@@ -1,6 +1,4 @@
-package test.java;
-
-import main.java.com.blablacar.utils.ReaderUtils;
+import com.blablacar.utils.ReaderUtils;
 import org.junit.Test;
 
 import java.util.Arrays;

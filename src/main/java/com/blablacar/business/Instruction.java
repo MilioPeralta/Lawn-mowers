@@ -1,4 +1,4 @@
-package main.java.com.blablacar.business;
+package com.blablacar.business;
 
 import java.util.function.BiFunction;
 

@@ -1,6 +1,4 @@
-package test.java;
-
-import main.java.com.blablacar.business.CardinalPoint;
+import com.blablacar.business.CardinalPoint;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

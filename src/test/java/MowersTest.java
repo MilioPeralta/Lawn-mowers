@@ -1,6 +1,7 @@
-package test.java;
-
-import main.java.com.blablacar.business.*;
+import com.blablacar.business.CardinalPoint;
+import com.blablacar.business.Coordinates;
+import com.blablacar.business.Lawn;
+import com.blablacar.business.Mower;
 import org.junit.Before;
 import org.junit.Test;
 

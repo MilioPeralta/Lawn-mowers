@@ -1,6 +1,6 @@
-package main.java.com.blablacar.business;
+package com.blablacar.business;
 
-import main.java.com.blablacar.utils.ReaderUtils;
+import com.blablacar.utils.ReaderUtils;
 
 import java.util.ArrayList;
 import java.util.List;

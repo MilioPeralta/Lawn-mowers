@@ -1,4 +1,4 @@
-package main.java.com.blablacar.utils;
+package com.blablacar.utils;
 
 import java.io.File;
 import java.io.IOException;
