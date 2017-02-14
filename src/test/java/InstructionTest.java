@@ -1,4 +1,3 @@
-import com.blablacar.business.Coordinates;
 import com.blablacar.business.Instruction;
 import org.junit.Test;
 
