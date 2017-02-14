@@ -2,7 +2,7 @@
 
 All the developement is located in the folder : src > main
 
-All the tests are located in the folder : src > test
+All the tests (using JUnit4) are located in the folder : src > test
 
 To run the program, you can run the Main class.
 
