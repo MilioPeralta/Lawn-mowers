@@ -21,6 +21,28 @@ public class LawnTest {
     }
 
     @Test
+    public void should_return_1_2_N_for_input_3x2() throws Exception {
+        Lawn lawn = new Lawn("src/test/resources/input_3x2.txt");
+
+        lawn.start();
+
+        assertEquals(lawn.getMowers().get(0).getCoordinates().getX(), 1);
+        assertEquals(lawn.getMowers().get(0).getCoordinates().getY(), 2);
+        assertEquals(lawn.getMowers().get(0).getOrientation().getLabel(), "N");
+    }
+
+    @Test
+    public void should_return_0_3_N_for_input_2x3() throws Exception {
+        Lawn lawn = new Lawn("src/test/resources/input_2x3.txt");
+
+        lawn.start();
+
+        assertEquals(lawn.getMowers().get(0).getCoordinates().getX(), 0);
+        assertEquals(lawn.getMowers().get(0).getCoordinates().getY(), 3);
+        assertEquals(lawn.getMowers().get(0).getOrientation().getLabel(), "N");
+    }
+
+    @Test
     public void should_return_1_5_N_and_3_0_S_for_input_txt() throws Exception {
         Lawn lawn = new Lawn("src/test/resources/input3.txt");
 
