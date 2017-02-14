@@ -53,7 +53,7 @@ public class Lawn {
             return;
         }
 
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid lines if input file");
     }
 
     /**

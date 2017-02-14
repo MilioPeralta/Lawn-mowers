@@ -46,7 +46,7 @@ public class Coordinates {
             return;
         }
 
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid Coordinates");
     }
 
     /**
@@ -83,11 +83,11 @@ public class Coordinates {
                     }
 
                 } catch (NumberFormatException e) {
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Invalid Coordinates");
                 }
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid line for Coordinates");
     }
 
     /**

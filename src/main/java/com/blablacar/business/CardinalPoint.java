@@ -71,7 +71,7 @@ public enum CardinalPoint {
                 return cardinalPoint;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Unknown CardinalPoint");
     }
 
     public String getLabel() {

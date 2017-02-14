@@ -26,7 +26,7 @@ public class ReaderUtils {
             this.filePath = filePath;
             return;
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Invalid file");
     }
 
     /**

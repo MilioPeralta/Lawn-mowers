@@ -81,7 +81,7 @@ public enum Instruction implements BiFunction<Mower, Lawn, Mower> {
                 return instruction;
             }
         }
-        throw new IllegalArgumentException();
+        throw new IllegalArgumentException("Unknow Instruction");
     }
 
     private char getLabel() {
