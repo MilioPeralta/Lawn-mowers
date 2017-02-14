@@ -1,6 +1,6 @@
 # Lawn-mowers
 
-All the developement is located in the folder : src > main
+All the developement (using SDK 1.8) is located in the folder : src > main
 
 All the tests (using JUnit4) are located in the folder : src > test
 
