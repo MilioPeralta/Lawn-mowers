@@ -31,5 +31,10 @@ public class CoordinatesTest {
         new Coordinates("aze aze");
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void should_throw_exception_for_outside_bounds() throws Exception {
+        new Coordinates("1 1", new Coordinates(0,0));
+    }
+
 
 }
